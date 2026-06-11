@@ -61,3 +61,8 @@ mesh={
 generate_lods=true,
 ensure_tangents=true
 }
+scene={
+"meshes/generate_lods": true,
+"meshes/ensure_tangents": true,
+"animation/fps": 30
+}
