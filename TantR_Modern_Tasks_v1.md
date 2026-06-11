@@ -175,6 +175,63 @@
 
 ---
 
+### S0-I18N · Internacionalización
+
+- [x] **S0-T12** · Configurar sistema de internacionalización (EN / ES / JP)
+  - Habilitar en Godot: `Project Settings → Localization → Translations`
+  - Idiomas soportados: `en` (inglés, default), `es` (español), `ja` (japonés)
+  - Formato de archivos: JSON por idioma, convertidos a `.translation` (CSV) para Godot
+  - Estructura de archivos:
+
+    ```text
+    assets/
+    └── i18n/
+        ├── en.json
+        ├── es.json
+        ├── ja.json
+        └── (en|es|ja).translation  ← generados por Godot al importar
+    ```
+
+  - Estructura de los JSON (clave → texto):
+
+    ```json
+    {
+      "ui.menu.play": "PLAY",
+      "ui.menu.leaderboard": "LEADERBOARD",
+      "ui.menu.settings": "SETTINGS",
+      "ui.mode.story": "STORY",
+      "ui.mode.endless": "ENDLESS",
+      "ui.mode.practice": "PRACTICE",
+      "ui.mode.multiplayer": "MULTIPLAYER",
+      "ui.roulette.title": "NEXT GAME",
+      "ui.roulette.tap_to_stop": "TAP TO STOP!",
+      "ui.roulette.lucky": "LUCKY!",
+      "ui.result.success": "SUCCESS!",
+      "ui.result.fail": "FAIL!",
+      "ui.hud.goal": "GOAL: ESCAPE",
+      "ui.gameover.retry": "RETRY",
+      "ui.gameover.menu": "MENU",
+      "mg01.name": "LABYRINTH RUSH",
+      "mg01.instruction": "Reach the EXIT before the water rises!",
+      "mg02.name": "FREEZE TIMER",
+      "mg02.instruction": "Stop the timer at exactly 0!",
+      "mg03.name": "ANIMAL ECHO",
+      "mg03.instruction": "Repeat the animal sequence!",
+      "phase.1.name": "CITY",
+      "phase.2.name": "DESERT",
+      "phase.3.name": "CASINO"
+    }
+    ```
+
+  - Convención de claves: `{scope}.{pantalla/mg}.{elemento}` (todo en minúsculas con puntos)
+  - Uso en GDScript: `tr("ui.menu.play")` — nunca strings literales en nodos `Label`
+  - Uso en escenas: propiedad `text` de cada `Label` debe usar `tr(KEY)` o configurarse vía script
+  - Fuente japonesa: verificar que `PressStart2P` incluye caracteres CJK; si no, usar fallback (ej. `NotoSansJP-Bold.ttf`) solo para `ja`
+  - **Importante**: toda tarea posterior que añada texto visible al jugador debe añadir su clave a los 3 JSON antes de hardcodear el string
+  → depende de: S0-T05, S0-T10
+
+---
+
 ## SPRINT 1 — Core Engine + 3 Minijuegos (Semanas 3–4)
 
 ### S1-CORE · Sistema central
@@ -1110,7 +1167,7 @@
 
 | Sprint | Semanas | Tareas | Entregable verificable |
 |--------|---------|--------|------------------------|
-| S0 · Setup | 1–2 | S0-T01 → S0-T10 (10 tareas) | APK vacío exportando + assets Stitch importados |
+| S0 · Setup | 1–2 | S0-T01 → S0-T12 (12 tareas) | APK vacío exportando + assets Stitch importados + i18n EN/ES/JP configurado |
 | S1 · Core | 3–4 | S1-T01 → S1-T18 (18 tareas) | MG01+02+03 jugables, ruleta funcional, sistema de vidas |
 | S2 · MG 04–09 | 5–6 | S2-T01 → S2-T12 (12 tareas) | 9 minijuegos totales, feedback visual/audio completo |
 | S3 · Historia | 7–8 | S3-T01 → S3-T11 (11 tareas) | Modo Historia jugable de inicio a fin |
@@ -1118,7 +1175,7 @@
 | S5 · Polish | 10 | S5-T01 → S5-T08 (8 tareas) | Shaders, música, SFX, 60fps en mid-range |
 | S6 · QA | 11 | S6-T01 → S6-T12 (12 tareas) | Firebase integrado, 0 crashes, beta testing |
 | S7 · Release | 12 | S7-T01 → S7-T07 (7 tareas) | App en App Store + Google Play |
-| **TOTAL** | **12 sem** | **82 tareas** | |
+| **TOTAL** | **12 sem** | **84 tareas** | |
 
 ---
 

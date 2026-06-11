@@ -18,6 +18,7 @@ config/icon="res://assets/ui_sprites/icon.svg"
 
 [autoload]
 
+I18nManager="*res://autoloads/I18nManager.gd"
 GameController="*res://autoloads/GameController.gd"
 ScoreManager="*res://autoloads/ScoreManager.gd"
 AudioManager="*res://autoloads/AudioManager.gd"
@@ -34,6 +35,11 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep"
 window/handheld/orientation="portrait"
 window/vsync/vsync_mode=1
+
+[internationalization]
+
+locales/translations=PackedStringArray("res://assets/i18n/en.json", "res://assets/i18n/es.json", "res://assets/i18n/ja.json")
+locales/translations_pot_files=PackedStringArray()
 
 [physics]
 
