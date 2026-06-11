@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://dyx4mrvx3lf6m"]
+
+[ext_resource type="FontFile" id="1" path="res://assets/fonts/NotoSansJP-Bold.ttf"]
+
+resource_name = "font_notosansjp_bold"
+base_font = ExtResource("1")
+base_font_size = 24
