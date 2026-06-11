@@ -153,7 +153,7 @@
   - Documentar naming convention: {categoria}_{nombre}_{variante}.glb
   - Crear modelos placeholder para personajes (cubos con proporciones chibi)
 
-- [ ] **S0-T09** · Exportar mockups UI desde Stitch
+- [x] **S0-T09** · Exportar mockups UI desde Stitch
   - Conectar Stitch MCP en visual studio code
   - Exportar pantallas de UI como PNG referencia a `assets/ui_sprites/`
   - Estos sirven como REFERENCIA visual, no como assets finales
