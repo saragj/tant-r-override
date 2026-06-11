@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs2nkfnm8jyd0"]
+[gd_scene format=3 uid="uid://cs2nkfnm8jyd0"]
 
 [ext_resource type="Script" path="res://scenes/minigames/base/MiniGameBase.gd"]
 
