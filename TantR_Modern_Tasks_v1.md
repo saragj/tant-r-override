@@ -166,7 +166,7 @@
   - Colocar en `assets/fonts/`
   - Crear FontVariation resources en Godot con sizes base
 
-- [ ] **S0-T11** · Crear materiales base de Godot (pipeline 3D)
+- [x] **S0-T11** · Crear materiales base de Godot (pipeline 3D)
   - `mat_toon_base.tres`: StandardMaterial3D con shading toon (o ShaderMaterial)
   - `mat_neon_emissive.tres`: material emisivo para elementos de neon/glow
   - `mat_holographic.tres`: material para la ruleta holografica (DESIGN.MD S3.2C)

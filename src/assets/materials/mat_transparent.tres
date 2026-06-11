@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d2kt9fj6l3p4s"]
+
+resource_name = "mat_transparent"
+albedo_color = Color(1.0, 1.0, 1.0, 0.5)
+transparency = 1
+alpha_scissor = 0.1
+shading_mode = 0
+blend_mode = 0
+cull_mode = 0
