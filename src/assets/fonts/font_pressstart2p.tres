@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cbwwf2dqjejwm"]
+
+[ext_resource type="FontFile" id="1" path="res://assets/fonts/PressStart2P-Regular.ttf"]
+
+resource_name = "font_pressstart2p"
+base_font = ExtResource("1")
+base_font_size = 16

@@ -160,7 +160,7 @@
   - Los assets 3D finales se crean en Blender siguiendo DESIGN.MD
   - Naming convention para UI: `hud_{nombre}_{estado}.png` (ej. `hud_heart_full.png`)
 
-- [ ] **S0-T10** · Instalar fuentes
+- [x] **S0-T10** · Instalar fuentes
   - Descargar de Google Fonts: `PressStart2P-Regular.ttf` (arcade, HUD)
   - Descargar: `Montserrat-Bold.ttf` (UI moderna, menus)
   - Colocar en `assets/fonts/`
