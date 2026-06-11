@@ -1,0 +1,190 @@
+# Blender → Godot 4.x Asset Pipeline
+
+> tant-r OVERRIDE · Estilo 3D Chibi-High-Poly · Mobile Renderer
+
+## Quick Start
+
+1. Model in Blender 3.6+
+2. Run `tools/blender_export_setup.py` inside Blender's Script Editor
+3. Drop the `.glb` into the correct `src/assets/models/` subfolder
+4. Godot auto-imports with LODs and tangents on next editor scan
+
+---
+
+## Naming Convention
+
+### 3D Models
+```
+{category}_{name}_{variant}.glb
+```
+
+| Category | Prefix | Example |
+|----------|--------|---------|
+| Character | `char` | `char_detective_default.glb` |
+| Prop | `prop` | `prop_heart_container_v0.glb` |
+| Environment | `env` | `env_city_rooftop_day.glb` |
+| Minigame asset | `mg` | `mg01_tile_wall.glb` |
+
+- Use **lowercase**, **underscores only** (no spaces or hyphens)
+- `variant` is optional but required when multiple versions exist: `_default`, `_alt`, `_v0` (placeholder), `_v1` (first final)
+
+### Textures
+```
+{model_name}_{type}.png
+```
+
+| Type | Suffix | Notes |
+|------|--------|-------|
+| Base color | `_albedo` | sRGB |
+| Normal map | `_normal` | Linear, OpenGL convention |
+| ORM | `_orm` | Occlusion(R) Roughness(G) Metallic(B) |
+| Emissive | `_emissive` | sRGB |
+
+Example: `char_detective_default_albedo.png`
+
+### Materials (Godot .tres)
+```
+mat_{name}.tres
+```
+Examples: `mat_toon_base.tres`, `mat_neon_emissive.tres`
+
+---
+
+## Polycount Budgets
+
+| Asset Type | Target Triangles | Max |
+|------------|-----------------|-----|
+| Player character (LOD0) | 3 000 | 5 000 |
+| NPC / Boss (LOD0) | 3 000 | 5 000 |
+| Prop | 500 | 2 000 |
+| Environment chunk | 15 000 | 30 000 |
+| Minigame element | 200 | 1 000 |
+
+### LOD Strategy
+- **LOD0**: full detail — rendered when close
+- **LOD1**: 50 % of LOD0 tris — generated automatically by Godot (`generate_lods=true`)
+- **LOD2**: 25 % of LOD0 tris — generated automatically by Godot
+
+No manual LOD meshes are needed; Godot's importer handles this via `importer_defaults` in `project.godot`.
+
+---
+
+## Texture Budgets
+
+| Asset Type | Max Resolution |
+|------------|---------------|
+| Character | 1024 × 1024 |
+| Prop | 512 × 512 |
+| Environment | 512 × 1024 |
+| UI element | 128 × 256 |
+
+All textures are compressed to ETC2/ASTC at import time (configured in `project.godot`).
+
+---
+
+## Blender Export Settings
+
+Use `tools/blender_export_setup.py`. Key settings:
+
+| Setting | Value | Reason |
+|---------|-------|--------|
+| Format | GLB (binary) | Single file, simpler pipeline |
+| Y-Up | ✓ enabled | Godot's coordinate system |
+| Apply Modifiers | ✓ enabled | Bake subdivision, mirror, etc. |
+| Tangents | ✓ enabled | Required for normal maps |
+| Include Animations | ✓ enabled | NLA strips exported |
+| Draco Compression | ✗ disabled | Godot uses its own VRAM compression |
+| Embed Textures | ✗ disabled | Keep textures as separate PNG files |
+| Export Cameras/Lights | ✗ disabled | Not needed for game assets |
+
+### Step-by-step Export
+1. Open your `.blend` file in Blender 3.6+
+2. Go to **Scripting** workspace
+3. Open `tools/blender_export_setup.py`
+4. Set `OUTPUT_DIR` to the correct `src/assets/models/{subfolder}` path
+5. Set `EXPORT_NAME` following the naming convention above
+6. Click **Run Script** (▶)
+7. Confirm the `.glb` appears in the target folder
+
+---
+
+## Godot Import Defaults
+
+Configured in `src/project.godot`:
+
+```ini
+[importer_defaults]
+
+texture={
+compress/mode=2,
+compress/hdr_compression=1
+}
+mesh={
+generate_lods=true,
+ensure_tangents=true
+}
+scene={
+"meshes/generate_lods": true,
+"meshes/ensure_tangents": true,
+"animation/fps": 30
+}
+```
+
+These apply automatically to every `.glb` dropped into the project.
+
+### Per-asset overrides
+If a specific asset needs different settings, create a `.gdextension`-style import override via **Import dock** in Godot editor, then commit the resulting `.import` file.
+
+---
+
+## Directory Structure
+
+```
+src/assets/models/
+├── characters/     ← char_*.glb files
+├── props/          ← prop_*.glb files
+├── environments/   ← env_*.glb files
+└── minigames/      ← mg{nn}_*.glb files (per-minigame subfolders optional)
+
+src/assets/textures/
+├── characters/
+├── environments/
+└── ui/
+
+src/assets/materials/   ← .tres material files
+src/assets/animations/  ← .tres AnimationLibrary resources
+```
+
+---
+
+## Checklist Before Committing an Asset
+
+- [ ] Name follows `{category}_{name}_{variant}.glb` convention
+- [ ] Placed in correct `src/assets/models/` subfolder
+- [ ] Polycount within budget for asset type
+- [ ] All transforms applied in Blender (Ctrl+A → All Transforms)
+- [ ] Origin set to geometry center (or foot for characters)
+- [ ] No loose vertices or non-manifold geometry
+- [ ] Textures exported as separate PNG, follow `_{type}.png` naming
+- [ ] Texture resolution within budget
+- [ ] Godot editor imported without errors (check `.import` file generated)
+
+---
+
+## Placeholder Models
+
+Placeholder `.glb` files (chibi-proportioned cubes) are generated by:
+
+```bash
+python3 tools/generate_placeholders.py
+```
+
+These allow development to proceed before final art is ready. Replace them when
+final models are approved.
+
+| Placeholder | Location | Replaces |
+|-------------|----------|---------|
+| `char_detective_base_v0.glb` | `models/characters/` | Detective player character |
+| `char_boss_base_v0.glb` | `models/characters/` | Boss character |
+| `prop_heart_container_v0.glb` | `models/props/` | Heart/life UI prop |
+| `env_platform_base_v0.glb` | `models/environments/` | Generic ground platform |

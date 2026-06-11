@@ -145,7 +145,7 @@
 
 ### S0-ASSETS · Pipeline de assets desde Blender + Stitch
 
-- [ ] **S0-T08** · Configurar pipeline Blender → Godot
+- [x] **S0-T08** · Configurar pipeline Blender → Godot
   - Crear archivo de Blender template con settings de export correctos
   - Export settings: glTF 2.0 (.glb), +Y Up, Apply Modifiers, Include Animations
   - Verificar que un modelo test (.glb) importa correctamente en Godot
