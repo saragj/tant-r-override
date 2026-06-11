@@ -313,9 +313,11 @@
   → depende de: S1-T01, S0-T05
 
 - [ ] **S1-T07** · Implementar `TimerBar` (componente reutilizable)
-  - ProgressBar que va de 100% a 0%
-  - Color: verde → amarillo → rojo según porcentaje (>50%, 25–50%, <25%)
-  - Animación de pulso cuando queda <25%
+  - TimeBar: cuenta atrás visual en segundos que desciende de izquierda a derecha (o barra de progreso que merma)
+  - Tiempo base por minijuego: configurado en `MiniGameBase.base_time` (ej: 20.0s)
+  - Duración ajustada por dificultad: Fase 1 = base_time, Fase 2 = base_time × 0.9, Fase 3 = base_time × 0.8
+  - Color: verde (>50% tiempo restante) → amarillo (25–50%) → rojo (<25%)
+  - Animación de pulso cuando queda <25% del tiempo
   - Señal `timer_finished()`
   ```gdscript
   func start_timer(duration: float) -> void
@@ -326,9 +328,10 @@
   → depende de: S1-T06
 
 - [ ] **S1-T08** · Implementar `LivesDisplay` (componente HUD)
-  - 3 iconos de corazón (full / empty / fragment)
-  - Animación de pérdida: corazón se rompe con partículas
-  - Animación de ganancia: corazón aparece con bounce
+  - 3 iconos de prisionero en pixel art (estilo chibi, traje naranja) — referencias visuales: parte inferior de `mg01_labyrinth_gameplay.png`
+  - Estados: activo (prisionero de pie, colores vivos) / perdido (prisionero desvanecido/gris)
+  - Animación de pérdida: prisionero cae o desaparece con partículas
+  - Animación de ganancia: prisionero aparece con bounce
   ```gdscript
   func set_lives(count: int) -> void
   func set_fragments(count: int) -> void  # fragmentos Lucky (0, 1, 2, 3)
@@ -342,6 +345,7 @@
 ### S1-ROULETTE · Sistema de ruleta
 
 - [ ] **S1-T09** · Crear escena `Roulette.tscn`
+  - **Referencia visual**: `screen_roulette.png` (mockup de Stitch con layout y estilo)
   - Nodos: `Control` (full screen) → `VBoxContainer`
     - `Title` (Label "NEXT GAME")
     - `SlotContainer` (HBoxContainer con 4 `SlotCard`)
