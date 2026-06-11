@@ -11,8 +11,29 @@ config_version=5
 [application]
 
 config/name="Tant-r Override"
+config/version="0.1.0"
+run/main_scene="res://scenes/ui/MainMenu.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://assets/ui_sprites/icon.svg"
+
+[autoload]
+
+GameController="*res://autoloads/GameController.gd"
+ScoreManager="*res://autoloads/ScoreManager.gd"
+AudioManager="*res://autoloads/AudioManager.gd"
+SaveManager="*res://autoloads/SaveManager.gd"
+TransitionManager="*res://autoloads/TransitionManager.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=540
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+window/handheld/orientation="portrait"
+window/vsync/vsync_mode=1
 
 [physics]
 
@@ -20,5 +41,23 @@ config/icon="res://icon.svg"
 
 [rendering]
 
-rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+rendering_device/driver.windows="d3d12"
+textures/default_filters/use_nearest=false
+textures/vram_compression/import_etc2_astc=true
+global_illumination/sdfgi/enabled=false
+global_illumination/probe_visibility/enable_occlusion_culling=true
+environment/ambient_light/ambient_light_source=1
+environment/ambient_light/ambient_light_energy=0.8
+environment/ambient_light/ambient_light_energy_source=0
+
+[importer_defaults]
+
+texture={
+compress/mode=2,
+compress/hdr_compression=1
+}
+mesh={
+generate_lods=true,
+ensure_tangents=true
+}

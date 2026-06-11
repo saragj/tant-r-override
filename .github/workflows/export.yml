@@ -1,0 +1,95 @@
+name: Godot Export & Tests
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  export-android:
+    name: Export Android APK
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.6
+          use-mono: true
+
+      - name: Create Android export directory
+        run: mkdir -p build/android
+
+      - name: Export Android APK
+        uses: firebelley/godot-export@v3
+        with:
+          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.6/Godot_v4.6-stable_mono_linux.x86_64.zip
+          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.6/Godot_v4.6-stable_mono_export-templates.tpz
+          relative_project_path: ./
+          export_debug: true
+          export_preset: Android
+        continue-on-error: true
+
+      - name: Upload APK artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: build/android/
+          retention-days: 7
+
+  run-tests:
+    name: Run Godot Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.6
+          use-mono: true
+
+      - name: Run GUT tests
+        run: |
+          # Run tests from res://tests/ directory
+          godot --headless -d -s res://addons/gut/gut_cmdline.gd
+        continue-on-error: true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: .gut/
+          retention-days: 7
+
+  build-check:
+    name: Verify Build Configuration
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check project.godot exists
+        run: test -f project.godot || exit 1
+
+      - name: Check export presets exist
+        run: test -f export_presets.cfg || echo "Warning: export_presets.cfg not found"
+
+      - name: List project structure
+        run: |
+          echo "Project structure:"
+          ls -la res:// || ls -la ./

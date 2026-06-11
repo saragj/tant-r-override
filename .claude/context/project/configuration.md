@@ -45,7 +45,7 @@ renderer/rendering_method.mobile="mobile"
 
 ## Firebase Configuration
 
-- Project: `tantr-modern`
+- Project: `tan-r-override`
 - Services enabled: Analytics, Crashlytics, Realtime Database
 - Config files (NOT in repo):
   - Android: `google-services.json`

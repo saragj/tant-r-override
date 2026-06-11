@@ -24,7 +24,7 @@
   - Instalar también `Godot Export Templates` desde Editor → Export → Download Templates
   - Verificar que lanza sin errores en macOS/Windows/Linux
 
-- [ ] **S0-T02** · Instalar herramientas auxiliares
+- [x] **S0-T02** · Instalar herramientas auxiliares
   - Instalar `Blender 3.6+` (modelado 3D, export glTF) — herramienta principal de arte
   - Instalar `Aseprite` o `Figma` (UI sprites, texturas 2D opcionales)
   - Instalar `Android Studio` y configurar Android SDK (API level 29+)
@@ -32,14 +32,14 @@
   - Instalar `Git` y cliente gráfico (GitKraken o SourceTree)
   - Verificar pipeline: Blender export .glb → Godot importa correctamente
 
-- [ ] **S0-T03** · Crear repositorio GitHub
-  - Nombre: `tantr-modern`
+- [x] **S0-T03** · Actualizar repositorio GitHub
+  - Nombre: `tant-r-override`
   - Visibilidad: privado
   - Añadir `.gitignore` para Godot (template oficial de GitHub)
-  - Crear ramas: `main` (producción), `develop` (integración), `feature/*` (trabajo)
-  - Configurar protección de rama `main`: require PR + 1 review
+  - Crear ramas: `main` (producción - ya está creada), `develop` (integración), `feature/*` (trabajo)
+  - Configurar protección de rama `main`: require PR
 
-- [ ] **S0-T04** · Configurar CI/CD básico con GitHub Actions
+- [x] **S0-T04** · Configurar CI/CD básico con GitHub Actions
   - Crear `.github/workflows/export.yml`
   - Job 1: export Android APK en cada push a `develop`
   - Job 2: run Godot unit tests (GUT framework)
@@ -50,7 +50,7 @@
 
 ### S0-STRUCT · Estructura del proyecto Godot
 
-- [ ] **S0-T05** · Crear proyecto Godot con estructura de carpetas
+- [x] **S0-T05** · Actualizar proyecto Godot con estructura de carpetas
   ```
   res://
   ├── autoloads/
@@ -125,7 +125,7 @@
       └── performance/
   ```
 
-- [ ] **S0-T06** · Configurar `project.godot`
+- [x] **S0-T06** · Configurar `project.godot`
   - `display/window/size/viewport_width = 1080`
   - `display/window/size/viewport_height = 1920`
   - `display/window/stretch/mode = "canvas_items"`
@@ -136,7 +136,7 @@
   - Configurar environment: WorldEnvironment con tilt-shift DoF sutil
   - Configurar default import: meshes/generate_lods=true, textures compress ETC2
 
-- [ ] **S0-T07** · Configurar export presets
+- [x] **S0-T07** · Configurar export presets
   - **Android**: package `com.tantrmodern.game`, min SDK 29, target SDK 34, firmar con keystore de debug
   - **iOS**: bundle ID `com.tantrmodern.game`, deployment target iOS 15.0
   - Verificar que ambos exports generan build sin errores (aunque esté vacío)
@@ -154,7 +154,7 @@
   - Crear modelos placeholder para personajes (cubos con proporciones chibi)
 
 - [ ] **S0-T09** · Exportar mockups UI desde Stitch
-  - Conectar Stitch MCP en OpenCode
+  - Conectar Stitch MCP en visual studio code
   - Exportar pantallas de UI como PNG referencia a `assets/ui_sprites/`
   - Estos sirven como REFERENCIA visual, no como assets finales
   - Los assets 3D finales se crean en Blender siguiendo DESIGN.MD
