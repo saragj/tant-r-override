@@ -153,24 +153,24 @@
   - Documentar naming convention: {categoria}_{nombre}_{variante}.glb
   - Crear modelos placeholder para personajes (cubos con proporciones chibi)
 
-- [ ] **S0-T09** · Exportar mockups UI desde Stitch
+- [x] **S0-T09** · Exportar mockups UI desde Stitch
   - Conectar Stitch MCP en visual studio code
   - Exportar pantallas de UI como PNG referencia a `assets/ui_sprites/`
   - Estos sirven como REFERENCIA visual, no como assets finales
   - Los assets 3D finales se crean en Blender siguiendo DESIGN.MD
   - Naming convention para UI: `hud_{nombre}_{estado}.png` (ej. `hud_heart_full.png`)
 
-- [ ] **S0-T10** · Instalar fuentes
-  - Descargar de Google Fonts: `PressStart2P-Regular.ttf` (arcade, HUD)
-  - Descargar: `Montserrat-Bold.ttf` (UI moderna, menus)
+- [x] **S0-T10** · Instalar fuentes
+  - Descargar de Google Fonts: `PressStart2P-Regular.ttf` (arcade, HUD) ✅ descargado
+  - Descargar: `Montserrat-Bold.ttf` (UI moderna, menus) ⚠️ descargar localmente
   - Colocar en `assets/fonts/`
-  - Crear FontVariation resources en Godot con sizes base
+  - Crear FontVariation resources en Godot con sizes base ✅ creados
 
-- [ ] **S0-T11** · Crear materiales base de Godot (pipeline 3D)
-  - `mat_toon_base.tres`: StandardMaterial3D con shading toon (o ShaderMaterial)
-  - `mat_neon_emissive.tres`: material emisivo para elementos de neon/glow
-  - `mat_holographic.tres`: material para la ruleta holografica (DESIGN.MD S3.2C)
-  - `mat_transparent.tres`: material transparente para efectos
+- [x] **S0-T11** · Crear materiales base de Godot (pipeline 3D)
+  - `mat_toon_base.tres`: StandardMaterial3D con shading toon (o ShaderMaterial) ✅
+  - `mat_neon_emissive.tres`: material emisivo para elementos de neon/glow ✅
+  - `mat_holographic.tres`: material para la ruleta holografica (DESIGN.MD S3.2C) ✅
+  - `mat_transparent.tres`: material transparente para efectos ✅
   - Verificar que todos renderizan correctamente en Mobile renderer
 
 ---
