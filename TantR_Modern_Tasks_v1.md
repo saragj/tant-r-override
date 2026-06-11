@@ -179,7 +179,7 @@
 
 ### S1-CORE · Sistema central
 
-- [ ] **S1-T01** · Implementar `GameController.gd` (autoload singleton)
+- [x] **S1-T01** · Implementar `GameController.gd` (autoload singleton)
   ```gdscript
   # Señales que debe emitir:
   signal minigame_completed(score: int, time_left: float)
@@ -208,7 +208,7 @@
   ```
   → depende de: S0-T05, S0-T06
 
-- [ ] **S1-T02** · Implementar `ScoreManager.gd` (autoload)
+- [x] **S1-T02** · Implementar `ScoreManager.gd` (autoload)
   ```gdscript
   # Cálculo de puntuación:
   # base_score = 1000 (por minijuego completado)
@@ -225,7 +225,7 @@
   ```
   → depende de: S1-T01
 
-- [ ] **S1-T03** · Implementar `SaveManager.gd` (autoload)
+- [x] **S1-T03** · Implementar `SaveManager.gd` (autoload)
   ```gdscript
   # Estructura del save file (JSON en user://save.json):
   # {
@@ -250,7 +250,7 @@
   ```
   → depende de: S0-T05
 
-- [ ] **S1-T04** · Implementar `AudioManager.gd` (autoload)
+- [x] **S1-T04** · Implementar `AudioManager.gd` (autoload)
   ```gdscript
   # Buses de audio: Master, SFX, Music
   # SFX: latencia mínima, un AudioStreamPlayer por canal (pool de 8)
@@ -269,7 +269,7 @@
 
 ### S1-BASE · MiniGameBase
 
-- [ ] **S1-T05** · Crear escena `MiniGameBase.tscn`
+- [x] **S1-T05** · Crear escena `MiniGameBase.tscn`
   - Nodos: `CanvasLayer` (raíz) → `Control` (full viewport) → `VBoxContainer`
     - `InstructionPanel` (Label + Icon, visible 2s al inicio)
     - `TimerBar` (ProgressBar, muestra tiempo restante)
