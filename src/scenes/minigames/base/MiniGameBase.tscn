@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs2nkfnm8jyd0"]
+[gd_scene load_steps=3 format=3 uid="uid://cs2nkfnm8jyd0"]
 
-[ext_resource type="Script" path="res://scenes/minigames/base/MiniGameBase.gd"]
+[ext_resource type="Script" path="res://scenes/minigames/base/MiniGameBase.gd" id="1_base"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/LivesDisplay.tscn" id="2_lds"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1")
+script = ExtResource("1_base")
 mg_id = ""
 mg_name = ""
 base_time = 20.0
@@ -75,27 +77,9 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LivesDisplay" type="HBoxContainer" parent="Control/VBoxContainer/HUD"]
+[node name="LivesDisplay" parent="Control/VBoxContainer/HUD" instance=ExtResource("2_lds")]
 layout_mode = 2
 size_flags_horizontal = 2
-
-[node name="Heart1" type="TextureRect" parent="Control/VBoxContainer/HUD/LivesDisplay"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-expand_ignore_size = true
-stretch_mode = 4
-
-[node name="Heart2" type="TextureRect" parent="Control/VBoxContainer/HUD/LivesDisplay"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-expand_ignore_size = true
-stretch_mode = 4
-
-[node name="Heart3" type="TextureRect" parent="Control/VBoxContainer/HUD/LivesDisplay"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-expand_ignore_size = true
-stretch_mode = 4
 
 [node name="ScoreDisplay" type="Label" parent="Control/VBoxContainer/HUD"]
 layout_mode = 2

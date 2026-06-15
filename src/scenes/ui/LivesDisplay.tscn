@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3 uid="uid://blivesdisplay1"]
+
+[ext_resource type="Script" path="res://scenes/ui/LivesDisplay.gd" id="1_ldsp"]
+
+[node name="LivesDisplay" type="HBoxContainer"]
+script = ExtResource("1_ldsp")
+theme_override_constants/separation = 8
+
+[node name="Slot0" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Slot0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand_ignore_size = true
+stretch_mode = 4
+
+[node name="Particles" type="CPUParticles2D" parent="Slot0"]
+position = Vector2(20, 20)
+emitting = false
+amount = 8
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.8
+direction = Vector2(0, -1)
+spread = 45.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(1, 0.6, 0, 1)
+
+[node name="Slot1" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Slot1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand_ignore_size = true
+stretch_mode = 4
+
+[node name="Particles" type="CPUParticles2D" parent="Slot1"]
+position = Vector2(20, 20)
+emitting = false
+amount = 8
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.8
+direction = Vector2(0, -1)
+spread = 45.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(1, 0.6, 0, 1)
+
+[node name="Slot2" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Slot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand_ignore_size = true
+stretch_mode = 4
+
+[node name="Particles" type="CPUParticles2D" parent="Slot2"]
+position = Vector2(20, 20)
+emitting = false
+amount = 8
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.8
+direction = Vector2(0, -1)
+spread = 45.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(1, 0.6, 0, 1)
