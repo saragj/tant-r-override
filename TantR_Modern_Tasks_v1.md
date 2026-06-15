@@ -276,7 +276,7 @@
     - `GameArea` (Control, área de juego, 360×480px)
     - `HUD` (HBoxContainer): `LivesDisplay`, `ScoreDisplay`
 
-- [ ] **S1-T06** · Implementar `MiniGameBase.gd`
+- [x] **S1-T06** · Implementar `MiniGameBase.gd`
   ```gdscript
   class_name MiniGameBase
   extends CanvasLayer
