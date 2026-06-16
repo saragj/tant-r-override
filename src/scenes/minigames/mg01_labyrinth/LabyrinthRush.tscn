@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmg01lab01"]
+
+[ext_resource type="PackedScene" path="res://scenes/minigames/base/MiniGameBase.tscn" id="1_base"]
+[ext_resource type="Script" path="res://scenes/minigames/mg01_labyrinth/LabyrinthRush.gd" id="2_lab"]
+
+[node name="LabyrinthRush" instance=ExtResource("1_base")]
+script = ExtResource("2_lab")
+mg_id = "mg01"
+mg_name = "Labyrinth Rush"
+base_time = 25.0
+instruction_text = "¡Desliza para escapar antes de que el agua te alcance!"

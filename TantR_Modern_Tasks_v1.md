@@ -418,7 +418,7 @@
 
 ### S1-MG · Minijuegos 01–03
 
-- [ ] **S1-T16** · Implementar **MG01 · Labyrinth Rush**
+- [x] **S1-T16** · Implementar **MG01 · Labyrinth Rush**
   - **Escena**: `mg01_labyrinth/LabyrinthRush.tscn`
   - **Mecánica**: deslizar dedo para mover al detective por un laberinto, el agua sube desde abajo
   - **Assets necesarios**: sprite detective (16×16px), tiles de laberinto, sprite agua
