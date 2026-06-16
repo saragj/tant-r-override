@@ -102,26 +102,21 @@ Los 20 minijuegos están diseñados cubriendo las 5 categorías del original (DE
 
 | # | Nombre | Tipo | Mecánica core | Duración | Dificultad |
 |---|--------|------|---------------|----------|------------|
-| 01 | Labyrinth Rush | Puzzle | Deslizar dedo para navegar laberinto 3D antes de que suba el agua | 20s | ⭐⭐ |
-| 02 | Freeze Timer | Concentración | Tap en el momento exacto para detener el cronómetro en 0 | 15s | ⭐⭐⭐ |
-| 03 | Animal Echo | Concentración | Memorizar y reproducir secuencia de sonidos animales | 25s | ⭐⭐⭐ |
-| 04 | Slot Hunter | Búsqueda visual | Localizar el patrón correcto de símbolos en una rejilla 3D dinámica | 20s | ⭐⭐⭐ |
-| 05 | Robot Match | Puzzle | Rotar pieza 3D para que coincida con su robot exacta | 18s | ⭐⭐ |
-| 06 | Odd One Out | Puzzle | Identificar el elemento que NO pertenece al grupo (objetos 3D) | 12s | ⭐⭐ |
-| 07 | Tap Frenzy | Ráfaga | Tap rápido para alcanzar un número objetivo antes de tiempo | 10s | ⭐⭐⭐⭐ |
-| 08 | Count Fast | Conteo | Contar objetos 3D que aparecen y desaparecen rápidamente | 15s | ⭐⭐⭐ |
-| 09 | Wire Connect | Puzzle | Conectar cables del color correcto sin cruces (vista superior 3D) | 22s | ⭐⭐⭐ |
-| 10 | Mirror Draw | Concentración | Completar el dibujo simétricamente con el dedo | 20s | ⭐⭐ |
-| 11 | Safe Cracker | Concentración | Mantener el indicador en la zona verde con micro-ajustes | 18s | ⭐⭐⭐⭐ |
-| 12 | Pixel Hunt | Búsqueda visual | Encontrar el objeto diferente en una escena 3D abarrotada | 15s | ⭐⭐⭐⭐ |
-| 13 | Rush Dodge | Ráfaga | Evitar obstáculos deslizando horizontalmente (bonus/boss) | 30s | ⭐⭐⭐⭐⭐ |
-| 14 | Cube Stack | Puzzle | Apilar cubos en orden correcto antes de que caigan | 18s | ⭐⭐⭐ |
-| 15 | Light Sequence | Concentración | Repetir secuencia de luces de neón en orden (Simon Says 3D) | 20s | ⭐⭐⭐ |
-| 16 | Crowd Counter | Conteo | Contar cubos específicos en una multitud en movimiento | 15s | ⭐⭐⭐⭐ |
-| 17 | Button Basher | Ráfaga | Golpear topos 3D que emergen de agujeros (Whack-a-Mole) | 12s | ⭐⭐⭐ |
-| 18 | Symbol Match | Búsqueda visual | Encontrar pares de símbolos idénticos en rejilla giratoria 3D | 20s | ⭐⭐⭐ |
-| 19 | Balance Act | Ráfaga | Mantener equilibrio inclinando (gyro/swipe) una plataforma | 15s | ⭐⭐⭐⭐ |
-| 20 | Path Finder | Conteo | Seguir mentalmente un camino que se oculta y seleccionar destino | 18s | ⭐⭐⭐⭐ |
+| 01 | LABERYRINTH RUSH Rush | Puzzle | Deslizar dedo para navegar laberinto antes de que se acabe el tiempo | 20s | ⭐⭐ |
+| 02 | FREEZE TIMER | Concentración | Tap en el momento exacto para detener el cronómetro en 0 | 15s | ⭐⭐⭐ |
+| 03 | ANIMAL ECHO | Concentración | Memorizar y reproducir secuencia de sonidos animales | 25s | ⭐⭐⭐ |
+| 04 | ROBOT PUZZLE | Puzzle | Rotar pieza 3D para que coincida con su robot exacta | 18s | ⭐⭐ |
+| 05 | NUMBERS MATCH | Búsqueda visual | Elige la cifra que aparece en la pantalla | 18s | ⭐⭐⭐⭐ |
+| 06 | BONUS GAME | Ráfaga | Evitar globos deslizando vertivalmente y horizontalmente una avioneta (bonus/boss) | 30s | ⭐⭐⭐⭐⭐ |
+| 07 | DIAMONS DROP| Búsqueda visual |  | 18s | ⭐⭐⭐⭐ |
+| 08 | BALLOON PUMP | Búsqueda visual | Golpea el globo hasta que asuste a la gallina | 20s | ⭐⭐⭐ |
+|    | FROG DODGE | Búsqueda visual | Evita las piedras y recorre todos los nenufares | 15s | ⭐⭐⭐⭐ |
+| 08 | FLASHPOINT | Concentración | Hacer una fotografia cuando el objeto pase por delante de nuestro enfoque | 20s | ⭐⭐⭐ |
+| 09 | COUNT IT! | Conteo | Contar cubos específicos en una multitud de cubos apilados | 15s | ⭐⭐⭐⭐ |
+| 10 | BET SEQUENCE |  Búsqueda visual | Encontrar 5 simbolos de máquinas tragaperras en rejilla 2D donde aparecen muchos simbolos, como crucigrama | 12s | ⭐⭐⭐ |
+
+| 12 | HANDCUFFS FINDER | Conteo | Seguir mentalmente unas esposas ocultas y bajo un sombrero de copa | 15s | ⭐⭐⭐⭐ |
+| 13 | NINJA FINDER | Conteo | Seguir mentalmente un ninja que se oculta y seleccionar destino | 18s | ⭐⭐⭐⭐ |
 
 > **📌 Nota de diseño (DESIGN.MD §4.2)**
 > Los minijuegos se clasifican en 5 tipologías troncales: Rompecabezas (reorganizar piezas, emparejar patrones geométricos 3D), Conteo (calcular objetos en movimiento), Concentración (retener secuencias de luces/sonidos), Ráfaga (pulsar botones en momento exacto o button mashing), y Búsqueda de Imágenes (localizar combinaciones en rejillas 3D dinámicas). Cada minijuego tiene instrucciones de 2 segundos antes de comenzar.

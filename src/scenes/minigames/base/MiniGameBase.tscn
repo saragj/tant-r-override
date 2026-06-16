@@ -7,7 +7,7 @@ script = ExtResource("1")
 mg_id = ""
 mg_name = ""
 base_time = 20.0
-instruction_text = ""
+instruction_key = ""
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
