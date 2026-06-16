@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmg03ech01"]
+
+[ext_resource type="PackedScene" path="res://scenes/minigames/base/MiniGameBase.tscn" id="1_base"]
+[ext_resource type="Script" path="res://scenes/minigames/mg03_animal_echo/AnimalEcho.gd" id="2_eco"]
+
+[node name="AnimalEcho" instance=ExtResource("1_base")]
+script = ExtResource("2_eco")
+mg_id = "mg03"
+mg_name = "Animal Echo"
+base_time = 20.0
+instruction_text = "¡Memoriza el sonido de los animales y repítelo en orden!"

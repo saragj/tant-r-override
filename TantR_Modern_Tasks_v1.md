@@ -459,7 +459,7 @@
   ```
   → depende de: S1-T06
 
-- [ ] **S1-T18** · Implementar **MG03 · Animal Echo**
+- [x] **S1-T18** · Implementar **MG03 · Animal Echo**
   - **Escena**: `mg03_animal_echo/AnimalEcho.tscn`
   - **Mecánica**: se reproduce una secuencia de sonidos animales (3–5 sonidos), el jugador toca los animales en el mismo orden
   - **Assets**: sprites de 6 animales (gato, perro, pájaro, vaca, rana, mono) 32×32px

@@ -94,6 +94,12 @@ func _preload_audio_streams() -> void:
 		"roulette_stop": "res://assets/audio/sfx/roulette_stop.ogg",
 		"life_lost": "res://assets/audio/sfx/life_lost.ogg",
 		"life_gained": "res://assets/audio/sfx/life_gained.ogg",
+		"animal_cat": "res://assets/audio/sfx/animal_cat.ogg",
+		"animal_dog": "res://assets/audio/sfx/animal_dog.ogg",
+		"animal_bird": "res://assets/audio/sfx/animal_bird.ogg",
+		"animal_cow": "res://assets/audio/sfx/animal_cow.ogg",
+		"animal_frog": "res://assets/audio/sfx/animal_frog.ogg",
+		"animal_monkey": "res://assets/audio/sfx/animal_monkey.ogg",
 	}
 
 	# Preload SFX files (non-blocking, handles missing files gracefully)
