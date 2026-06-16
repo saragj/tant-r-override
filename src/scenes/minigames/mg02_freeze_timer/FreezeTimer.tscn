@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmg02frz01"]
+
+[ext_resource type="PackedScene" path="res://scenes/minigames/base/MiniGameBase.tscn" id="1_base"]
+[ext_resource type="Script" path="res://scenes/minigames/mg02_freeze_timer/FreezeTimer.gd" id="2_frz"]
+
+[node name="FreezeTimer" instance=ExtResource("1_base")]
+script = ExtResource("2_frz")
+mg_id = "mg02"
+mg_name = "Freeze Timer"
+base_time = 20.0
+instruction_text = "¡Detén el cronómetro lo más cerca posible de 0.00!"

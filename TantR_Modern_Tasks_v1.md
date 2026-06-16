@@ -441,7 +441,7 @@
   ```
   → depende de: S1-T06
 
-- [ ] **S1-T17** · Implementar **MG02 · Freeze Timer**
+- [x] **S1-T17** · Implementar **MG02 · Freeze Timer**
   - **Escena**: `mg02_freeze_timer/FreezeTimer.tscn`
   - **Mecánica**: un cronómetro digital corre hacia 0. Tap para detenerlo exactamente en 0.0–0.3s
   - **Assets**: display digital 7-segmentos (sprite sheet), botón STOP grande
