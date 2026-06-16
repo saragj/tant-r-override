@@ -369,7 +369,7 @@
   ```
   → depende de: S1-T01, S0-T05
 
-- [ ] **S1-T07** · Implementar `TimerBar` (componente reutilizable)
+- [x] **S1-T07** · Implementar `TimerBar` (componente reutilizable)
   - TimeBar: cuenta atrás visual en segundos que desciende de izquierda a derecha (o barra de progreso que merma)
   - Tiempo base por minijuego: configurado en `MiniGameBase.base_time` (ej: 20.0s)
   - Duración ajustada por dificultad: Fase 1 = base_time, Fase 2 = base_time × 0.9, Fase 3 = base_time × 0.8
@@ -384,7 +384,7 @@
   ```
   → depende de: S1-T06
 
-- [ ] **S1-T08** · Implementar `LivesDisplay` (componente HUD)
+- [x] **S1-T08** · Implementar `LivesDisplay` (componente HUD)
   - 3 iconos de prisionero en pixel art (estilo chibi, traje naranja) — referencias visuales: parte inferior de `mg01_labyrinth_gameplay.png`
   - Estados: activo (prisionero de pie, colores vivos) / perdido (prisionero desvanecido/gris)
   - Animación de pérdida: prisionero cae o desaparece con partículas
@@ -401,7 +401,7 @@
 
 ### S1-ROULETTE · Sistema de ruleta
 
-- [ ] **S1-T09** · Crear escena `Roulette.tscn`
+- [x] **S1-T09** · Crear escena `Roulette.tscn`
   - **Referencia visual**: `screen_roulette.png` (mockup de Stitch con layout y estilo)
   - Nodos: `Control` (full screen) → `VBoxContainer`
     - `Title` (Label "NEXT GAME")
@@ -409,7 +409,7 @@
     - `PressButton` (Button "TAP TO STOP!", pulsable)
     - `LuckyEffect` (partículas, oculto por defecto)
 
-- [ ] **S1-T10** · Implementar `Roulette.gd`
+- [x] **S1-T10** · Implementar `Roulette.gd`
   ```gdscript
   # La ruleta muestra 4 cartas que rotan rápido (como slot machine)
   # El jugador toca para detenerla
@@ -429,7 +429,7 @@
   ```
   → depende de: S1-T01, S0-T09
 
-- [ ] **S1-T11** · Implementar `SlotCard.gd` (componente de la ruleta)
+- [x] **S1-T11** · Implementar `SlotCard.gd` (componente de la ruleta)
   - Muestra icono + nombre del minijuego
   - Animación de scroll vertical (los iconos pasan por la tarjeta)
   - Efecto de glow cuando está seleccionada
@@ -445,27 +445,27 @@
 
 ### S1-UI · Pantallas principales
 
-- [ ] **S1-T12** · Implementar `MainMenu.tscn` + `MainMenu.gd`
+- [x] **S1-T12** · Implementar `MainMenu.tscn` + `MainMenu.gd`
   - Elementos: logo animado "TANT-R", botones: PLAY, LEADERBOARD, SETTINGS
   - Animación de entrada: logo cae desde arriba con bounce
   - Fondo: detectives corriendo en loop (sprite animation)
   - Touch targets mínimo 44pt para todos los botones
   - Música de fondo en loop
 
-- [ ] **S1-T13** · Implementar `ModeSelect.tscn` + `ModeSelect.gd`
+- [x] **S1-T13** · Implementar `ModeSelect.tscn` + `ModeSelect.gd`
   - 4 botones modo: Historia 🕵️, Contrarreloj ⏱️, Práctica 🎮, Multijugador 👥
   - Modo Multijugador: selector de número de jugadores (2/3/4) con stepper
   - Descripción breve de cada modo al seleccionarlo
   - Botón Back
 
-- [ ] **S1-T14** · Implementar `MiniGameResult.tscn` + `MiniGameResult.gd`
+- [x] **S1-T14** · Implementar `MiniGameResult.tscn` + `MiniGameResult.gd`
   - Mostrar: SUCCESS / FAIL con animación
   - SUCCESS: score ganado + multiplicadores aplicados + combo actual
   - FAIL: vida perdida (animación corazón roto) + mensaje motivacional
   - Duración: 1.5s automático (sin necesidad de tap)
   - Transición: wipe horizontal hacia siguiente minijuego o ruleta
 
-- [ ] **S1-T15** · Implementar `GameOver.tscn` + `GameOver.gd`
+- [x] **S1-T15** · Implementar `GameOver.tscn` + `GameOver.gd`
   - Mostrar score final con animación de contador
   - Comparar con high score: si es nuevo record → celebración especial
   - Botones: RETRY, MENU, LEADERBOARD
@@ -475,7 +475,7 @@
 
 ### S1-MG · Minijuegos 01–03
 
-- [ ] **S1-T16** · Implementar **MG01 · Labyrinth Rush**
+- [x] **S1-T16** · Implementar **MG01 · Labyrinth Rush**
   - **Escena**: `mg01_labyrinth/LabyrinthRush.tscn`
   - **Mecánica**: deslizar dedo para mover al detective por un laberinto, el agua sube desde abajo
   - **Assets necesarios**: sprite detective (16×16px), tiles de laberinto, sprite agua
@@ -498,7 +498,7 @@
   ```
   → depende de: S1-T06
 
-- [ ] **S1-T17** · Implementar **MG02 · Freeze Timer**
+- [x] **S1-T17** · Implementar **MG02 · Freeze Timer**
   - **Escena**: `mg02_freeze_timer/FreezeTimer.tscn`
   - **Mecánica**: un cronómetro digital corre hacia 0. Tap para detenerlo exactamente en 0.0–0.3s
   - **Assets**: display digital 7-segmentos (sprite sheet), botón STOP grande
@@ -516,7 +516,7 @@
   ```
   → depende de: S1-T06
 
-- [ ] **S1-T18** · Implementar **MG03 · Animal Echo**
+- [x] **S1-T18** · Implementar **MG03 · Animal Echo**
   - **Escena**: `mg03_animal_echo/AnimalEcho.tscn`
   - **Mecánica**: se reproduce una secuencia de sonidos animales (3–5 sonidos), el jugador toca los animales en el mismo orden
   - **Assets**: sprites de 6 animales (gato, perro, pájaro, vaca, rana, mono) 32×32px

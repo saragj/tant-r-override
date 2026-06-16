@@ -1,7 +1,5 @@
 extends Node
 
-class_name AudioManager
-
 # Audio buses configuration
 const MASTER_BUS = "Master"
 const SFX_BUS = "SFX"
@@ -94,6 +92,12 @@ func _preload_audio_streams() -> void:
 		"roulette_stop": "res://assets/audio/sfx/roulette_stop.ogg",
 		"life_lost": "res://assets/audio/sfx/life_lost.ogg",
 		"life_gained": "res://assets/audio/sfx/life_gained.ogg",
+		"animal_cat": "res://assets/audio/sfx/animal_cat.ogg",
+		"animal_dog": "res://assets/audio/sfx/animal_dog.ogg",
+		"animal_bird": "res://assets/audio/sfx/animal_bird.ogg",
+		"animal_cow": "res://assets/audio/sfx/animal_cow.ogg",
+		"animal_frog": "res://assets/audio/sfx/animal_frog.ogg",
+		"animal_monkey": "res://assets/audio/sfx/animal_monkey.ogg",
 	}
 
 	# Preload SFX files (non-blocking, handles missing files gracefully)
@@ -169,14 +173,14 @@ func stop_music(fade_time: float = 0.5) -> void:
 
 func set_sfx_volume(value: float) -> void:
 	_sfx_volume = clamp(value, 0.0, 1.0)
-	var db = linear2db(_sfx_volume) if _sfx_volume > 0.0 else -80.0
+	var db = linear_to_db(_sfx_volume) if _sfx_volume > 0.0 else -80.0
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(SFX_BUS), _sfx_volume == 0.0)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(SFX_BUS), db)
 
 
 func set_music_volume(value: float) -> void:
 	_music_volume = clamp(value, 0.0, 1.0)
-	var db = linear2db(_music_volume) if _music_volume > 0.0 else -80.0
+	var db = linear_to_db(_music_volume) if _music_volume > 0.0 else -80.0
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(MUSIC_BUS), _music_volume == 0.0)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(MUSIC_BUS), db)
 

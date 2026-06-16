@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://croulette01"]
+
+[ext_resource type="Script" path="res://scenes/roulette/Roulette.gd" id="1_roul"]
+[ext_resource type="PackedScene" path="res://scenes/roulette/SlotCard.tscn" id="2_slot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.07, 0.07, 0.12, 1)
+
+[node name="Roulette" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_roul")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -160.0
+offset_right = 200.0
+offset_bottom = 160.0
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0.2, 0.95, 0.95, 1)
+horizontal_alignment = 1
+text = "NEXT GAME"
+
+[node name="SlotContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="SlotCard0" parent="VBoxContainer/SlotContainer" instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="SlotCard1" parent="VBoxContainer/SlotContainer" instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="SlotCard2" parent="VBoxContainer/SlotContainer" instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="SlotCard3" parent="VBoxContainer/SlotContainer" instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="PressButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "TAP TO STOP!"
+
+[node name="LuckyEffect" type="CPUParticles2D" parent="."]
+position = Vector2(200, 200)
+visible = false
+emitting = false
+amount = 24
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.7
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 80.0
+initial_velocity_max = 160.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(1, 0.85, 0.1, 1)

@@ -16,7 +16,7 @@ var _is_active: bool = false
 var _difficulty_multiplier: float = 1.0
 
 var _instruction_panel: PanelContainer
-var _timer_bar: ProgressBar
+var _timer_bar: TimerBar
 var _game_area: Control
 var _hud: HBoxContainer
 var _score_display: Label
@@ -30,6 +30,7 @@ func _ready() -> void:
 	_score_display = $Control/VBoxContainer/HUD/ScoreDisplay
 
 	_instruction_panel.visible = false
+	_timer_bar.timer_finished.connect(_on_time_up)
 
 	# Default total time until setup() is called
 	_total_time = base_time
@@ -37,17 +38,18 @@ func _ready() -> void:
 
 	_setup_game()
 
+	completed.connect(_on_default_completed)
+	failed.connect(_on_default_failed)
 
-func _process(delta: float) -> void:
+	setup(GameController.get_difficulty_multiplier())
+	show_instructions()
+
+
+func _process(_delta: float) -> void:
 	if not _is_active:
 		return
 
-	_time_remaining -= delta
-	_timer_bar.value = _time_remaining
-
-	if _time_remaining <= 0.0:
-		_is_active = false
-		_on_time_up()
+	_time_remaining = _timer_bar.get_time_remaining()
 
 
 # Configura el tiempo según la dificultad de la fase actual.
@@ -79,8 +81,7 @@ func show_instructions() -> void:
 
 func start() -> void:
 	_is_active = true
-	_timer_bar.max_value = _total_time
-	_timer_bar.value = _total_time
+	_timer_bar.start_timer(_total_time)
 	_start_game()
 
 
@@ -89,10 +90,12 @@ func _on_success() -> void:
 		return
 
 	_is_active = false
+	_timer_bar.pause_timer()
 
 	var score: int = ScoreManager.calculate_score(
-		100, _time_remaining, _total_time, GameController.combo_count
+		1000, _time_remaining, _total_time, GameController.combo_count
 	)
+	ScoreManager.add_score(score)
 	AudioManager.play_sfx("success")
 	completed.emit(score, _time_remaining)
 	_cleanup()
@@ -103,6 +106,7 @@ func _on_failure() -> void:
 		return
 
 	_is_active = false
+	_timer_bar.pause_timer()
 	_flash_error()
 	AudioManager.play_sfx("fail")
 	failed.emit()
@@ -134,3 +138,13 @@ func _start_game() -> void:
 # Virtual — limpia el estado al terminar.
 func _cleanup() -> void:
 	pass
+
+
+func _on_default_completed(score: int, time_left: float) -> void:
+	GameController.on_minigame_success(score, time_left)
+	TransitionManager.go_to_scene("res://scenes/ui/MiniGameResult.tscn")
+
+
+func _on_default_failed() -> void:
+	GameController.on_minigame_failure()
+	TransitionManager.go_to_scene("res://scenes/ui/MiniGameResult.tscn")
