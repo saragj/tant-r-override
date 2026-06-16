@@ -1,7 +1,5 @@
 extends Node
 
-class_name AudioManager
-
 # Audio buses configuration
 const MASTER_BUS = "Master"
 const SFX_BUS = "SFX"
