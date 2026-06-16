@@ -388,27 +388,27 @@
 
 ### S1-UI · Pantallas principales
 
-- [ ] **S1-T12** · Implementar `MainMenu.tscn` + `MainMenu.gd`
+- [x] **S1-T12** · Implementar `MainMenu.tscn` + `MainMenu.gd`
   - Elementos: logo animado "TANT-R", botones: PLAY, LEADERBOARD, SETTINGS
   - Animación de entrada: logo cae desde arriba con bounce
   - Fondo: detectives corriendo en loop (sprite animation)
   - Touch targets mínimo 44pt para todos los botones
   - Música de fondo en loop
 
-- [ ] **S1-T13** · Implementar `ModeSelect.tscn` + `ModeSelect.gd`
+- [x] **S1-T13** · Implementar `ModeSelect.tscn` + `ModeSelect.gd`
   - 4 botones modo: Historia 🕵️, Contrarreloj ⏱️, Práctica 🎮, Multijugador 👥
   - Modo Multijugador: selector de número de jugadores (2/3/4) con stepper
   - Descripción breve de cada modo al seleccionarlo
   - Botón Back
 
-- [ ] **S1-T14** · Implementar `MiniGameResult.tscn` + `MiniGameResult.gd`
+- [x] **S1-T14** · Implementar `MiniGameResult.tscn` + `MiniGameResult.gd`
   - Mostrar: SUCCESS / FAIL con animación
   - SUCCESS: score ganado + multiplicadores aplicados + combo actual
   - FAIL: vida perdida (animación corazón roto) + mensaje motivacional
   - Duración: 1.5s automático (sin necesidad de tap)
   - Transición: wipe horizontal hacia siguiente minijuego o ruleta
 
-- [ ] **S1-T15** · Implementar `GameOver.tscn` + `GameOver.gd`
+- [x] **S1-T15** · Implementar `GameOver.tscn` + `GameOver.gd`
   - Mostrar score final con animación de contador
   - Comparar con high score: si es nuevo record → celebración especial
   - Botones: RETRY, MENU, LEADERBOARD
