@@ -30,6 +30,15 @@ var available_minigames: Array[String] = [
 	"mg11", "mg12", "mg13", "mg14", "mg15", "mg16", "mg17", "mg18", "mg19", "mg20"
 ]
 
+const MINIGAME_SCENES: Dictionary = {
+	"mg01": "res://scenes/minigames/mg01_labyrinth/LabyrinthRush.tscn",
+	"mg02": "res://scenes/minigames/mg02_freeze_timer/FreezeTimer.tscn",
+	"mg03": "res://scenes/minigames/mg03_animal_echo/AnimalEcho.tscn",
+}
+
+var last_minigame_score: int = 0
+var last_minigame_success: bool = false
+
 var _consecutive_successes: int = 0
 
 
@@ -52,23 +61,32 @@ func start_game(mode: String) -> void:
 	ScoreManager.reset()
 
 
-func load_next_minigame() -> void:
-	# Get available minigames for current phase
-	var phase_minigames: Array[String] = phases_config[current_phase]["minigames"]
-
-	# In practice mode, all minigames are available
+## Minijuegos disponibles para la fase/modo actual (la ruleta elige entre estos).
+func get_phase_minigames() -> Array[String]:
 	if current_mode == "practice":
-		phase_minigames = available_minigames
+		return available_minigames
+	return phases_config[current_phase]["minigames"]
 
-	# Randomly select from available minigames
-	if not phase_minigames.is_empty():
-		var selected: String = phase_minigames[randi() % phase_minigames.size()]
-		# TODO: Load and instantiate the selected minigame scene
+
+## Avanza el flujo de juego mostrando la ruleta, que elegira el siguiente minijuego.
+func load_next_minigame() -> void:
+	TransitionManager.go_to_scene("res://scenes/roulette/Roulette.tscn")
+
+
+## Carga la escena del minijuego elegido por la ruleta.
+func start_minigame(mg_id: String) -> void:
+	var scene_path: String = MINIGAME_SCENES.get(mg_id, "")
+	if scene_path == "":
+		push_warning("GameController: no hay escena registrada para '%s' (Sprint 2+), usando mg01 como fallback" % mg_id)
+		scene_path = MINIGAME_SCENES["mg01"]
+	TransitionManager.go_to_scene(scene_path)
 
 
 func on_minigame_success(score: int, time_left: float) -> void:
 	_consecutive_successes += 1
 	minigames_completed_in_phase += 1
+	last_minigame_score = score
+	last_minigame_success = true
 
 	# score already includes speed/combo multipliers, applied by ScoreManager
 	# before this signal handler runs (see MiniGameBase._on_success)
@@ -93,7 +111,9 @@ func on_minigame_success(score: int, time_left: float) -> void:
 
 func on_minigame_failure() -> void:
 	_consecutive_successes = 0
+	combo_count = 0
 	current_lives -= 1
+	last_minigame_success = false
 	life_lost.emit()
 
 	if current_lives <= 0:

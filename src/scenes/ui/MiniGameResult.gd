@@ -20,6 +20,21 @@ const FAIL_MESSAGES: Array[String] = [
 @onready var _heart_icon: Control = $VBoxContainer/HeartIcon
 
 
+func _ready() -> void:
+	continue_requested.connect(_on_continue_requested)
+	if GameController.last_minigame_success:
+		show_success(GameController.last_minigame_score, GameController.combo_count)
+	else:
+		show_failure()
+
+
+func _on_continue_requested() -> void:
+	if GameController.current_lives <= 0:
+		TransitionManager.go_to_scene("res://scenes/ui/GameOver.tscn")
+	else:
+		GameController.load_next_minigame()
+
+
 func show_success(score: int, combo: int) -> void:
 	_result_label.text = "SUCCESS"
 	_result_label.modulate = Color(0.2, 0.9, 0.4)

@@ -47,11 +47,18 @@ func _ready() -> void:
 	_lucky_effect.visible = false
 	_lucky_effect.emitting = false
 	_press_button.pressed.connect(_on_stop_pressed)
+	selected.connect(_on_selected)
 
 	_spin_timer = Timer.new()
 	_spin_timer.one_shot = false
 	add_child(_spin_timer)
 	_spin_timer.timeout.connect(_on_spin_tick)
+
+	start_spin(GameController.get_phase_minigames())
+
+
+func _on_selected(minigame_id: String, _is_lucky: bool) -> void:
+	GameController.start_minigame(minigame_id)
 
 
 ## Arranca el giro de la ruleta con los minijuegos disponibles en la fase.

@@ -38,6 +38,12 @@ func _ready() -> void:
 
 	_setup_game()
 
+	completed.connect(_on_default_completed)
+	failed.connect(_on_default_failed)
+
+	setup(GameController.get_difficulty_multiplier())
+	show_instructions()
+
 
 func _process(_delta: float) -> void:
 	if not _is_active:
@@ -132,3 +138,13 @@ func _start_game() -> void:
 # Virtual — limpia el estado al terminar.
 func _cleanup() -> void:
 	pass
+
+
+func _on_default_completed(score: int, time_left: float) -> void:
+	GameController.on_minigame_success(score, time_left)
+	TransitionManager.go_to_scene("res://scenes/ui/MiniGameResult.tscn")
+
+
+func _on_default_failed() -> void:
+	GameController.on_minigame_failure()
+	TransitionManager.go_to_scene("res://scenes/ui/MiniGameResult.tscn")
