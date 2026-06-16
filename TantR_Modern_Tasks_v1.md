@@ -312,7 +312,7 @@
   ```
   → depende de: S1-T01, S0-T05
 
-- [ ] **S1-T07** · Implementar `TimerBar` (componente reutilizable)
+- [x] **S1-T07** · Implementar `TimerBar` (componente reutilizable)
   - TimeBar: cuenta atrás visual en segundos que desciende de izquierda a derecha (o barra de progreso que merma)
   - Tiempo base por minijuego: configurado en `MiniGameBase.base_time` (ej: 20.0s)
   - Duración ajustada por dificultad: Fase 1 = base_time, Fase 2 = base_time × 0.9, Fase 3 = base_time × 0.8

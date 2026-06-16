@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs2nkfnm8jyd0"]
+[gd_scene load_steps=4 format=3 uid="uid://cs2nkfnm8jyd0"]
 
 [ext_resource type="Script" path="res://scenes/minigames/base/MiniGameBase.gd" id="1_base"]
 
 [ext_resource type="PackedScene" path="res://scenes/ui/LivesDisplay.tscn" id="2_lds"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/components/TimerBar.tscn" id="3_tmrb"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_base")
@@ -60,12 +62,8 @@ size_flags_horizontal = 3
 text = ""
 vertical_alignment = 1
 
-[node name="TimerBar" type="ProgressBar" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
+[node name="TimerBar" parent="Control/VBoxContainer" instance=ExtResource("3_tmrb")]
 layout_mode = 2
-size_flags_horizontal = 3
-value = 100.0
-show_percentage = false
 
 [node name="GameArea" type="Control" parent="Control/VBoxContainer"]
 custom_minimum_size = Vector2(360, 480)
