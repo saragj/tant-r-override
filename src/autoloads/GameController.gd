@@ -49,6 +49,7 @@ func start_game(mode: String) -> void:
 	lucky_fragments = 0
 	minigames_completed_in_phase = 0
 	_consecutive_successes = 0
+	ScoreManager.reset()
 
 
 func load_next_minigame() -> void:
@@ -69,12 +70,10 @@ func on_minigame_success(score: int, time_left: float) -> void:
 	_consecutive_successes += 1
 	minigames_completed_in_phase += 1
 
-	# Calculate final score with multipliers
-	var final_score: int = score
-	final_score = int(final_score * get_score_multiplier())
-
-	current_score += final_score
-	minigame_completed.emit(final_score, time_left)
+	# score already includes speed/combo multipliers, applied by ScoreManager
+	# before this signal handler runs (see MiniGameBase._on_success)
+	current_score = ScoreManager.get_total_score()
+	minigame_completed.emit(score, time_left)
 
 	# Check for Lucky! (10% chance)
 	if randf() < 0.1:

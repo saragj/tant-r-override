@@ -87,8 +87,9 @@ func _on_success() -> void:
 	_timer_bar.pause_timer()
 
 	var score: int = ScoreManager.calculate_score(
-		100, _time_remaining, _total_time, GameController.combo_count
+		1000, _time_remaining, _total_time, GameController.combo_count
 	)
+	ScoreManager.add_score(score)
 	AudioManager.play_sfx("success")
 	completed.emit(score, _time_remaining)
 	_cleanup()
