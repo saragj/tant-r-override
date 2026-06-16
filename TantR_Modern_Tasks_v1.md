@@ -344,7 +344,7 @@
 
 ### S1-ROULETTE · Sistema de ruleta
 
-- [ ] **S1-T09** · Crear escena `Roulette.tscn`
+- [x] **S1-T09** · Crear escena `Roulette.tscn`
   - **Referencia visual**: `screen_roulette.png` (mockup de Stitch con layout y estilo)
   - Nodos: `Control` (full screen) → `VBoxContainer`
     - `Title` (Label "NEXT GAME")
@@ -352,7 +352,7 @@
     - `PressButton` (Button "TAP TO STOP!", pulsable)
     - `LuckyEffect` (partículas, oculto por defecto)
 
-- [ ] **S1-T10** · Implementar `Roulette.gd`
+- [x] **S1-T10** · Implementar `Roulette.gd`
   ```gdscript
   # La ruleta muestra 4 cartas que rotan rápido (como slot machine)
   # El jugador toca para detenerla
@@ -372,7 +372,7 @@
   ```
   → depende de: S1-T01, S0-T09
 
-- [ ] **S1-T11** · Implementar `SlotCard.gd` (componente de la ruleta)
+- [x] **S1-T11** · Implementar `SlotCard.gd` (componente de la ruleta)
   - Muestra icono + nombre del minijuego
   - Animación de scroll vertical (los iconos pasan por la tarjeta)
   - Efecto de glow cuando está seleccionada
