@@ -327,7 +327,7 @@
   ```
   → depende de: S1-T06
 
-- [ ] **S1-T08** · Implementar `LivesDisplay` (componente HUD)
+- [x] **S1-T08** · Implementar `LivesDisplay` (componente HUD)
   - 3 iconos de prisionero en pixel art (estilo chibi, traje naranja) — referencias visuales: parte inferior de `mg01_labyrinth_gameplay.png`
   - Estados: activo (prisionero de pie, colores vivos) / perdido (prisionero desvanecido/gris)
   - Animación de pérdida: prisionero cae o desaparece con partículas
